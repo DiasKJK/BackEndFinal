@@ -3,11 +3,11 @@ $ npm install
 
 $ npm start
 
+Суммарно используется 3 API в Cookbook, Cocktail и Facts, frontend часть на ejs, есть login and register функционал. пользователи не вошедшие в свой профиль не смогут изменять карусель, добавлять и изменять основные рецепты на сайте. вошедшие пользователи смогут зайти на страничку своего профиля и изменять информацию о себе и блюдах.
+
 https://github.com/DiasKJK/Assignment4Back.git
 
-https://assignment4back-hjdp.onrender.com/
+https://backendfinal-uohd.onrender.com/
 
-
-видео объяснение функционала:
-https://www.youtube.com/watch?v=ju8kzCCVWWc&ab_channel=jjjjjjjjjjjjjj
-
+видео-пример:
+https://youtu.be/ml5dZ4JdqNQ
