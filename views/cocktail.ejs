@@ -1,0 +1,70 @@
+<!-- cocktail.ejs -->
+
+<form action="/cocktail/search" method="GET">
+    <input type="text" placeholder="Search by Cocktail..." name="searchTerm" class="form-control" aria-label="Search by Cocktail">
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+<style>
+    .cocktail-image {
+        max-width: 300px;
+        max-height: 200px;
+    }
+</style>
+
+<style>
+    .cocktail-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+
+    .cocktail-card {
+        width: 300px;
+        border: 1px solid #ccc;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .cocktail-image {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+
+    .cocktail-description {
+        margin-top: 10px;
+    }
+
+    .cocktail-link {
+        display: block;
+        margin-top: 10px;
+        color: #007bff;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .cocktail-link:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<h2>Search Results for Cocktail: <%= searchTerm %></h2>
+
+<% if (cocktails && cocktails.length > 0) { %>
+    <div class="cocktail-container">
+        <% cocktails.forEach(cocktail => { %>
+            <div class="cocktail-card">
+                <h3><%= cocktail.strDrink %></h3>
+                <img class="cocktail-image" src="<%= cocktail.strDrinkThumb %>" alt="<%= cocktail.strDrink %>">
+                <p class="cocktail-description"><%= cocktail.strInstructions.slice(0, 100) %>...</p>
+                <a class="cocktail-link" href="<%= 'https://www.thecocktaildb.com/drink/' + cocktail.idDrink %>" target="_blank">Read More</a>
+
+            </div>
+        <% }); %>
+    </div>
+<% } else { %>
+    <p>No cocktails found for the specified search term.</p>
+<% } %>

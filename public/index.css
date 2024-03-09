@@ -1,0 +1,284 @@
+:root {
+  --color-primary: hsl(45, 90%, 51%);
+  --color-black: hsl(0, 0%, 0%);
+  --color-white: hsla(0, 0%, 100%);
+  --color-gray: hsl(0, 0%, 50%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  font-family: "Roboto", sans-serif;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  background-color: transparent;
+}
+
+input[type="checkbox"] {
+  width: 1rem;
+  height: 1rem;
+}
+
+input[type="button"],
+input[type="checkbox"],
+button,
+select,
+a {
+  cursor: pointer;
+}
+
+.main__title {
+  font-weight: 500;
+  text-align: center;
+  margin: 1rem;
+  text-decoration: underline wavy;
+  text-decoration-color: hsl(41deg 100% 51%);
+}
+
+.delete__icon {
+  position: absolute;
+  height: 1.5rem !important;
+  bottom: 0;
+  right: 49.1%;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.carousel__items {
+  margin: auto;
+  background: var(--color-gray);
+  box-shadow: 0px 1px 20px 0px hsl(0deg 0% 38% / 60%);
+  position: relative;
+}
+
+.carousel__item {
+  height: 28rem;
+  display: none;
+  display: inline-block;
+  position: relative;
+}
+
+.carousel__item:hover .delete__icon {
+  animation: fadeIn 2s forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.carousel__item .fade {
+  object-fit: contain;
+  width: 100%;
+  height: inherit;
+}
+
+.carousel__text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  font-weight: 600;
+  background: hsl(0deg 0% 100% / 50%);
+  padding: 0.1rem 2rem;
+}
+
+.arrows {
+  width: 1rem;
+  height: 1rem;
+  border-color: var(--color-black);
+  position: absolute;
+  top: 46%;
+  text-decoration: none;
+  color: var(--color-white);
+  z-index: 1;
+}
+
+.arrows:hover {
+  color: var(--color-white);
+}
+
+.prev {
+  border-bottom: 0.3rem solid;
+  border-left: 0.3rem solid;
+  transform: rotate(45deg);
+  left: 1.9rem;
+}
+
+.next {
+  border-bottom: 0.3rem solid;
+  border-left: 0.3rem solid;
+  transform: rotate(-135deg);
+  right: 1.9rem;
+}
+
+.carousel-dots {
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  bottom: -1.9rem;
+  display: block;
+}
+
+.carousel-dot {
+  display: inline-block;
+  margin: 0 0.5rem;
+}
+
+.carousel-dot .active {
+  background: var(--color-primary);
+}
+
+.carousel-dot-btn {
+  background: var(--color-white);
+  border-radius: 50%;
+  height: 1.5rem;
+  width: 1.5rem;
+  padding: 0.1rem;
+  font-weight: 800;
+  font-family: inherit;
+  border: 2px solid var(--color-black);
+}
+
+.controller {
+  margin: 1rem;
+  display: block;
+}
+
+.controllers-header {
+  font-weight: 500;
+  margin: 1rem;
+  text-decoration: underline dotted;
+  text-decoration-color: var(--color-primary);
+  text-align: center;
+}
+
+.carousel-update-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-top: 1.5rem;
+}
+
+.fade {
+  animation: fade 0.5s;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* form */
+
+#preview_image {
+  max-width: 130px;
+  max-height: 90px;
+  width: 100%;
+  object-fit: contain;
+  margin: 1rem 0;
+  border: 1px dashed var(--color-black);
+}
+
+.thumbnail-container {
+  position: relative;
+}
+
+.cancel__svg {
+  position: absolute;
+  top: 1rem;
+  right: 0;
+  cursor: pointer;
+  display: none;
+}
+
+.main__form {
+  border: 1px solid var(--color-gray);
+  padding: 1rem;
+  margin: 0 1rem;
+  border-radius: 0.5rem;
+  min-height: 26rem;
+  min-width: 22rem;
+  box-shadow: rgb(116 129 141 / 10%) 0px 3px 8px 0px;
+}
+
+.main__form:hover {
+  border: 1px solid var(--color-primary);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.form-control {
+  min-width: 15.6rem;
+  padding: 0.3rem;
+  width: 100%;
+  font-family: inherit;
+  border-radius: 5px;
+  border: 1px solid var(--color-black);
+}
+
+.form-control:focus {
+  outline: none;
+  background: hsl(41deg 100% 87%);
+  border: 1px solid var(--color-primary);
+}
+
+.btn {
+  display: block;
+  border-radius: 1rem;
+  padding: 0.5rem 2rem;
+  margin: 0 10px 0 0;
+  background: hsl(41deg 100% 51%);
+  border: 0;
+  font-family: inherit;
+  color: var(--color-white);
+  box-shadow: 0 0 30px 0 rgb(255 176 5 / 40%);
+  transition: background 0.5s ease-in-out;
+}
+
+.btn:hover {
+  background: var(--color-black);
+}
+
+.btn-danger:hover {
+  color: hsl(0, 100%, 66%);
+}
+
+.selectIndex {
+  padding: 0.3rem;
+  margin: 0.5rem;
+}
+.carousel__item {
+  position: relative;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* Ensure the container takes full height of the carousel__item */
+}

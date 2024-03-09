@@ -1,0 +1,70 @@
+<form action="/newpage/search" method="GET">
+    <input type="text" placeholder="Search by Ingredient..." name="ingredient" class="form-control" aria-label="Search by Ingredient">
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+<style>
+    
+    .recipe-image {
+        max-width: 300px; 
+        max-height: 200px; 
+    }
+</style>
+
+<style>
+    .recipe-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+
+    .recipe-card {
+        width: 300px;
+        border: 1px solid #ccc;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .recipe-image {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+
+    .recipe-description {
+        margin-top: 10px;
+    }
+
+    .recipe-link {
+        display: block;
+        margin-top: 10px;
+        color: #007bff;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .recipe-link:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<h2>Search Results for Ingredient: <%= ingredient %></h2>
+
+<% if (meals && meals.length > 0) { %>
+    <div class="recipe-container">
+        <% meals.forEach(meal => { %>
+            <div class="recipe-card">
+                <h3><%= meal.strMeal %></h3>
+                <img class="recipe-image" src="<%= meal.strMealThumb %>" alt="<%= meal.strMeal %>">
+                <% if (meal.strInstructions) { %>
+                    <p class="recipe-description"><%= meal.strInstructions.slice(0, 100) %>...</p>
+                <% } %>
+                <a class="recipe-link" href="<%= 'https://www.themealdb.com/meal/' + meal.idMeal %>" target="_blank">Read More</a>
+            </div>
+        <% }); %>
+    </div>
+<% } else { %>
+    <p>No recipes found for the specified ingredient.</p>
+<% } %>
+

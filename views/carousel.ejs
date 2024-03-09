@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="theme-color" content="#f3ba12">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A customizable carousel">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="./index.css" rel="stylesheet" type="text/css">
+    <title>JS Carousel</title>
+</head>
+
+<body>
+    <h1 class="main__title">JS Carousel</h1>
+
+    <section class="main__wrapper">
+
+        <!-- 👇 All carousels render here -->
+        <div class="carousel__items" id="main__slider">
+
+            <!-- carousel arrows ⬅ ➡ -->
+            <a class="arrows prev" role="button" onclick="nextSlide(-1)">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </a>
+            <a class="arrows next" role="button" onclick="nextSlide(1)">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </a>
+
+            <!-- carousel indicators -->
+            <ul class="carousel-dots"></ul>
+        </div>
+
+        <!-- carousel controllers 🎮 -->
+        <div class="carousel__controllers">
+
+            <div class="carousel-update-container">
+
+                <!-- Add new carousel -->
+                <div class="add-carousel-container">
+                    <h1 class="controllers-header">Add New Carousel</h3>
+                        <form onsubmit="event.preventDefault(); addCarousel();" class="main__form"
+                            id="add_carousel_form" spellcheck="false">
+                            <div class="form-group">
+                                <label for="carousel_label_input">Enter carousel text (optional)</label>
+                                <input type="text" class="form-control" id="carousel_label_input" />
+                            </div>
+
+                            <div class="form-group">
+                                <input type='file' onchange="readURL(this);" id="add__carousel__input" />
+                                <div class="thumbnail-container">
+                                    <img id="preview_image" src="./assets/thumbnail.jpg" alt="thumbnail"
+                                        accept="image/*" />
+                                    <img src="./assets/cancel.svg" alt="close" class="cancel__svg"
+                                        onclick="onCancelPreview()" />
+                                </div>
+                            </div>
+
+                            <label for="available-slides__add">Choose position to add:</label>
+                            <select id="available-slides__add" class="selectIndex" onfocus="populateDropdown()">
+                            </select>
+                            <select class="selectIndex" id="add__position">
+                                <option>After</option>
+                                <option>Before</option>
+                            </select>
+
+                            <button type="submit" id="add-carousel" class="btn">Add Carousel</button>
+                        </form>
+                </div>
+
+                <!-- carousel toggles -->
+                <div class="carousel-toggle-controls">
+                    <h1 class="controllers-header">Controllers</h1>
+                    <form class="main__form">
+
+                        <!-- Arrows Toggler -->
+                        <div class="controller arrow__toggle__controller">
+                            <input type="checkbox" id="toggle_arrows" onclick="toggleArrows(this)" checked />
+                            <label for="toggle_arrows">Toggle Arrows</label>
+                        </div>
+
+                        <!-- Bottom indicator toggler -->
+                        <div class="controller indecator__controller">
+                            <input type="checkbox" id="toggle_indicator" onclick="toggleDots(this)" checked />
+                            <label for="toggle_indicator">Toggle Indicator</label>
+                        </div>
+
+                        <!-- Number indicator toggler -->
+                        <div class="controller number_indecator__controller">
+                            <input type="checkbox" id="toggle_number_indicator" onclick="toggleNumberIndicator(this)" />
+                            <label for="toggle_number_indicator">Toggle to Number Indicators</label>
+                        </div>
+
+                        <!-- Auto switch carousel -->
+                        <div class="controller carousel__autoswitch__controller">
+                            <input type="checkbox" id="toggle_autocarousel_indicator"
+                                onclick="toggleAutoCarousel(this)" />
+                            <label for="toggle_autocarousel_indicator">Toggle to Auto slide</label>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <script type="text/javascript" src="/index.js" defer></script>
+</body>
+
+</html>
